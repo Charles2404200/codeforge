@@ -1,0 +1,24 @@
+{
+  "name": "codeforge-ai-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "app",
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\" \"npm:dev:electron\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev:electron": "cross-env NODE_ENV=development npm --prefix app run start",
+    "build": "npm --prefix client run build && cross-env NODE_ENV=production npm --prefix app run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "react-folder-tree": "^5.1.1"
+  }
+}

@@ -1,0 +1,13 @@
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --accent-color: #007bff;
+  --navbar-bg: #ffffff;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f8f9fa;
+  --accent-color: #00bfff;
+  --navbar-bg: #1f1f1f;
+}

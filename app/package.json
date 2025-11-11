@@ -1,0 +1,50 @@
+{
+  "name": "codeforge-electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.codeforge.ai",
+    "productName": "CodeForge AI",
+    "directories": {
+      "output": "../build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      {
+        "from": "../client/dist",
+        "to": "client",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "../server",
+        "to": "server",
+        "filter": [
+          "**/*",
+          "!node_modules/**"
+        ]
+      }
+    ],
+    "extraResources": [],
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
